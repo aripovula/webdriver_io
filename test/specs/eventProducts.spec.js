@@ -2,8 +2,8 @@
 import assert from 'assert'
 import EventProducts from '../pageObjects/eventProducts.page.js'
 
-describe('Add Event Product form', () => {
-    
+describe('Event Product form', () => {
+
     it('should open Add product modal, add values and click modals Add button', () => {
         EventProducts.open()
         EventProducts.addButtonMain.click()
@@ -16,12 +16,21 @@ describe('Add Event Product form', () => {
         assert.strictEqual(EventProducts.newOrAmendedProduct.getText(), EventProducts.eventProduct.name)
     })
 
-    // it('should allow access with correct creds', () => {
-    //     EventProducts.open()
-    //     EventProducts.username.setValue('tomsmith')
-    //     EventProducts.password.setValue('SuperSecretPassword!')
-    //     EventProducts.submit()
+    it('should open "Delete product" modal and click modals Delete button', () => {
+        EventProducts.open()
+        EventProducts.newOrAmendedProduct.click()
+        EventProducts.newOrAmendedProduct.waitForDisplayed(undefined)
+        browser.pause(3000)
+        let clickable = EventProducts.deleteButtonMain.isClickable();
+        console.log('clickable - ', clickable);
+        // let clickable2 = EventProducts.editButtonMain.isClickable();
+        // console.log('clickable2 - ', clickable2);
+        // EventProducts.deleteButtonMain.click()
+        // browser.pause(3000)
+        // EventProducts.deleteButtonModal.click()
 
-    //     expect(EventProducts.flash.getText()).to.contain('You logged into a secure area!')
-    // })
+        // assert.strictEqual(EventProducts.newOrAmendedProduct.getText(), EventProducts.eventProduct.name)
+        browser.pause(3000)
+    })
+    browser.pause(3000);
 })

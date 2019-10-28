@@ -15,7 +15,11 @@ class EventProducts extends Page {
     get gtin() { return $('#gtin') }
     get supplier() { return $('#supplier') }
     get addButtonModal() { return $('button=Add product') }
+    get editButtonMain() { return $('.button--outline=Edit Product') }
+    // get deleteButtonMain() { return $('.button--danger=Remove Product') }
+    get deleteButtonModal() { return $('button=Remove product')}
     get newOrAmendedProduct() { return $(`label.list-group__item-title=${eventProduct.name}`) }
+    get deleteButtonMain() { return $('.list-group .list-group__item--expandable:nth-child(1)').$('button*=Remove') }
     get eventProduct() { return eventProduct; }
 
     open() {
@@ -25,7 +29,7 @@ class EventProducts extends Page {
     submit() {
         this.submitBtn.click()
     }
-
 }
 
 export default new EventProducts()
+
