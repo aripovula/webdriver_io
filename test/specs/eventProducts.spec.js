@@ -1,21 +1,23 @@
 // import { expect } from 'chai'
+const assert = require('assert')
 import EventProducts from '../pageObjects/eventProducts.page.js'
-import { eventProduct } from '../pageObjects/eventProducts.page.js'
+// import { eventProduct } from '../pageObjects/eventProducts.page.js'
 
 
 describe('login form', () => {
+    
     it('should deny access with wrong creds', () => {
         EventProducts.open()
         EventProducts.addButtonMain.click()
-        EventProducts.productName.setValue(eventProduct.name)
-        EventProducts.spc.setValue(eventProduct.spc)
-        EventProducts.gtin.setValue(eventProduct.gtin)
-        EventProducts.supplier.setValue(eventProduct.supplier)
+        EventProducts.productName.setValue(EventProducts.eventProduct.name)
+        EventProducts.spc.setValue(EventProducts.eventProduct.spc)
+        EventProducts.gtin.setValue(EventProducts.eventProduct.gtin)
+        EventProducts.supplier.setValue(EventProducts.eventProduct.supplier)
         EventProducts.addButtonModal.click()
 
-        assert.strictEqual(EventProducts.newOrAmendedProduct.getText(), eventProduct.name)
+        assert.strictEqual(EventProducts.newOrAmendedProduct.getText(), EventProducts.eventProduct.name)
 
-        // expect(EventProducts.flash.getText()).to.contain('Your username is invalid!')
+        // expect(EventProducts.newOrAmendedProduct.getText()).to.contain(eventProduct.name)
     })
 
     // it('should allow access with correct creds', () => {

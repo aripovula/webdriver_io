@@ -1,7 +1,7 @@
-import Page from './page'
+import Page from './page';
 
-export eventProduct = {
-    name: 'ABC',
+const eventProduct = {
+    name: 'ABC12',
     spc: "S124",
     gtin: "G24",
     supplier: "S136"
@@ -16,6 +16,7 @@ class EventProducts extends Page {
     get supplier() { return $('#supplier') }
     get addButtonModal() { return $('button=Add product') }
     get newOrAmendedProduct() { return $(`label.list-group__item-title=${eventProduct.name}`) }
+    get eventProduct() { return eventProduct; }
 
     open() {
         super.open('http://localhost:5000/events/1/products')

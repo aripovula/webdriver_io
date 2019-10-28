@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+const assert = require('assert')
 
 const inputValue = 'WebdriverIO2245';
 
