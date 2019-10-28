@@ -1,12 +1,10 @@
 // import { expect } from 'chai'
-const assert = require('assert')
+import assert from 'assert'
 import EventProducts from '../pageObjects/eventProducts.page.js'
-// import { eventProduct } from '../pageObjects/eventProducts.page.js'
 
-
-describe('login form', () => {
+describe('Add Event Product form', () => {
     
-    it('should deny access with wrong creds', () => {
+    it('should open Add product modal, add values and click modals Add button', () => {
         EventProducts.open()
         EventProducts.addButtonMain.click()
         EventProducts.productName.setValue(EventProducts.eventProduct.name)
@@ -16,8 +14,6 @@ describe('login form', () => {
         EventProducts.addButtonModal.click()
 
         assert.strictEqual(EventProducts.newOrAmendedProduct.getText(), EventProducts.eventProduct.name)
-
-        // expect(EventProducts.newOrAmendedProduct.getText()).to.contain(eventProduct.name)
     })
 
     // it('should allow access with correct creds', () => {
