@@ -20,6 +20,9 @@
     "@wdio/spec-reporter": "^5.15.2",
     "@wdio/sync": "^5.15.1",
     "chromedriver": "^77.0.0",
+    "ts-node": "^8.4.1",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.6.4",
     "wdio-chromedriver-service": "^5.0.2"
   },
   "dependencies": {

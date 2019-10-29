@@ -1,5 +1,5 @@
 // import { expect } from 'chai'
-import assert from 'assert'
+import assert from 'assert';
 import EventProducts from '../pageObjects/eventProducts.page.js'
 
 describe('Event Product form', () => {

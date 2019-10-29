@@ -131,6 +131,10 @@ exports.config = {
     mochaOpts: {
         ui: 'bdd',
         require: ['@babel/register'],
+        // compilers: ['ts:ts-node/register'],
+        // require: [
+        //     'tsconfig-paths/register'
+        // ],
         timeout: 60000
     },
     //
@@ -163,8 +167,9 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+        // require('ts-node').register({ files: true })
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
