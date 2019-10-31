@@ -1,36 +1,34 @@
-// import { expect } from 'chai'
-import assert from 'assert';
-import EventProducts from '../pageObjects/eventProducts.page.js'
+import { expect } from 'chai';
+import EventProducts from '../pageObjects/eventProducts.page';
 
 describe('Event Product form', () => {
 
-    it('should open Add product modal, add values and click modals Add button', () => {
-        EventProducts.open()
-        EventProducts.addButtonMain.click()
-        EventProducts.productName.setValue(EventProducts.eventProduct.name)
-        EventProducts.spc.setValue(EventProducts.eventProduct.spc)
-        EventProducts.gtin.setValue(EventProducts.eventProduct.gtin)
-        EventProducts.supplier.setValue(EventProducts.eventProduct.supplier)
-        EventProducts.addButtonModal.click()
+    const testProduct = EventProducts.eventProductOne;
 
-        assert.strictEqual(EventProducts.newOrAmendedProduct.getText(), EventProducts.eventProduct.name)
+    it('should open Add product modal, add values and click modals Add button', () => {
+        EventProducts.open();
+        EventProducts.addButtonMain.click();
+        EventProducts.productName.setValue(testProduct.name);
+        EventProducts.spc.setValue(testProduct.spc);
+        EventProducts.gtin.setValue(testProduct.gtin);
+        EventProducts.supplier.setValue(testProduct.supplier);
+        EventProducts.addButtonModal.click();
+
+        expect(EventProducts.newOrAmendedProduct.getText()).to.equal(testProduct.name);
     })
 
     it('should open "Delete product" modal and click modals Delete button', () => {
-        EventProducts.open()
-        EventProducts.newOrAmendedProduct.click()
-        EventProducts.newOrAmendedProduct.waitForDisplayed(undefined)
-        browser.pause(3000)
-        let clickable = EventProducts.deleteButtonMain.isClickable();
-        console.log('clickable - ', clickable);
-        // let clickable2 = EventProducts.editButtonMain.isClickable();
-        // console.log('clickable2 - ', clickable2);
-        // EventProducts.deleteButtonMain.click()
-        // browser.pause(3000)
-        // EventProducts.deleteButtonModal.click()
+        EventProducts.open();
+        EventProducts.newOrAmendedProduct.click();
+        EventProducts.newOrAmendedProduct.waitForDisplayed(undefined);
+        console.log('newOrAmendedProduct-', EventProducts.newOrAmendedProduct);
+        EventProducts.deleteButtonMain.click();
+        // browser.pause(3000);
+        EventProducts.deleteButtonModal.waitForDisplayed(undefined);
+        EventProducts.deleteButtonModal.click();
 
-        // assert.strictEqual(EventProducts.newOrAmendedProduct.getText(), EventProducts.eventProduct.name)
-        browser.pause(3000)
+        // expect(EventProducts.newOrAmendedProduct).to.be.null;
+        browser.pause(3000);
     })
     browser.pause(3000);
-})
+});

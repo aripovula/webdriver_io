@@ -4,9 +4,9 @@ export default class Page {
     
     constructor() {
         this.title = 'Inventory Management';
-    }
+    };
 
-    open(path) {
+    open(path: string) {
         browser.url(path)
-    }
+    };
 }

@@ -20,7 +20,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        './test/specs/**/*.js', './test/specs/**/*.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -131,10 +131,9 @@ exports.config = {
     mochaOpts: {
         ui: 'bdd',
         require: ['@babel/register'],
-        // compilers: ['ts:ts-node/register'],
-        // require: [
-        //     'tsconfig-paths/register'
-        // ],
+        require: [
+            'tsconfig-paths/register'
+        ],
         timeout: 60000
     },
     //
@@ -168,7 +167,7 @@ exports.config = {
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
     before: function (capabilities, specs) {
-        // require('ts-node').register({ files: true })
+        require('ts-node').register({ files: true })
     },
     /**
      * Runs before a WebdriverIO command gets executed.

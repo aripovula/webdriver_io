@@ -1,11 +1,13 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
+        "target": "es5",
+        "esModuleInterop": true,
         "paths": {
             "*": [ "./*" ],
             "src/*": ["./test/*"]
         },
-        "types": ["node", "webdriverio", "@wdio/mocha-framework"]
+        "types": ["node", "@wdio/sync", "@wdio/mocha-framework"]
     },
     "include": [
         "./test/**/*.ts"
